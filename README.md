@@ -22,6 +22,7 @@ Usage
 Just create a channel you want to query (Every 5 minutes)
 
 create_channel $username
+
 You have to get the username from the youtube channel
 Ex: http://www.youtube.com/user/joueurdugrenier
     --> create_channel joueurdugrenier
