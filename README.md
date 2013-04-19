@@ -28,7 +28,8 @@ Ex: http://www.youtube.com/user/joueurdugrenier
 
 --> create_channel joueurdugrenier
 
-It will then create a directory with an index.html
+It will then create a directory with an index.html and download the last video (it will then query the channel every 
+5 minutes and download every new videos on it)
 
 Troubleshooting
 ====
