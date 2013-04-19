@@ -1,4 +1,4 @@
-mytube
+Mytube
 ======
 
 This set of 3 files seeks updates on channel you decided and download the last videos.
