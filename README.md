@@ -6,11 +6,11 @@ There is also the last version of youtube-dl (http://rg3.github.io/youtube-dl/)
 
 Prerequisite
 ====
--- CURL
+* CURL
 (apt-get install curl)
 That's it!
---Linux
---A smb/nfs file share or an web server where you can access this file
+* Linux
+* A smb/nfs file share or an web server where you can access this file
 
 Installation
 ====
