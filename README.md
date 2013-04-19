@@ -25,7 +25,8 @@ create_channel $username
 
 You have to get the username from the youtube channel
 Ex: http://www.youtube.com/user/joueurdugrenier
-    --> create_channel joueurdugrenier
+
+--> create_channel joueurdugrenier
 
 It will then create a directory with an index.html
 
