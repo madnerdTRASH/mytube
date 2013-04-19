@@ -1,0 +1,14 @@
+#!/bin/bash
+path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+echo "Creating channel $1"
+mkdir $path/$1
+echo "empty" > $path/$1/last.txt
+echo "<a href="$1">$1</a>" >> index.html
+cat <(crontab -l) <(echo "*/5 * * * * $path/get_last $1") | crontab -
+echo '<a href="../">Back</a>' > $path/$1/index.html
+echo "<h1>$1</h1>" >> $path/$1/index.html
+$path/get_last $1
+clear
+echo "Channel $1 created"
+time=$(date)
+echo "$time - $1 - chaine cree" >> /var/log/mytube.log

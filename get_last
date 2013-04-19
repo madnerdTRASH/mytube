@@ -1,0 +1,16 @@
+#!/bin/bash
+path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+last_link=$(curl http://www.youtube.com/user/$1/videos|grep "watch?" -m1|awk '/watch/ { print $2 }'|sed s/href=\"//)
+last_download=$(cat $path/$1/last.txt)
+if [ $last_download == $last_link ]
+then
+echo "Last video from $1 already downloaded"
+else
+filename=$($path/youtube-dl "http://www.youtube.com/$last_link" --get-filename -o "%(title)s.%(ext)s" --restrict-filenames)
+echo $last_link > $path/$1/last.txt
+$path/youtube-dl "http://www.youtube.com/$last_link" -o "$path/$1/%(title)s.%(ext)s" --restrict-filenames
+mv $path/$filename $path/$1/
+echo '<video controls width="400" height="200" src="'$filename'"></video>' >> $path/$1/index.html
+echo '<h2>'$filename'</h2>' >> $path/$1/index.html
+echo "$filename - downloaded" >> /var/log/mytube.log
+fi
